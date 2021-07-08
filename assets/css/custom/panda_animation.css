@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+svg{
+    width: 100%;
+    height: 100%;
+
+    animation: panda 5s;
+    position: relative;
+    top: auto;
+    left: auto;
+}
+
+@keyframes panda{
+    0%{
+        transform: scale(0)
+    }
+    100%{
+        transform: scale(1)
+    }
+}
+body {
+    text-align: center;
+}
+
+#mouth_happy{
+    z-index: 5;
+}
+
+#mouth_shocked{
+    opacity: 0;
+}
+
+#panda_shocked{
+    z-index: 1;
+}
+
+#panda_closed_eyes{
+    z-index: 2;
+
+}
+
+#left_ear{
+
+    animation: left_ear infinite 3s ease-in-out;
+
+}
+
+#right_ear{
+
+    animation: right_ear infinite 3s ease-in-out;
+}
+
+#left-eyelid, #right-eyelid{
+    animation: eyelids infinite;
+    animation-duration: 3s;
+}
+#right-eye-closed, #left-eye-closed{
+    animation-delay: 0s;
+    animation: eyes_closed infinite;
+    animation-duration: 3s;
+}
+#right_eye, #left_eye{
+    animation-delay: 0s;
+    animation: eyes infinite ;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: head 3s ease-in-out infinite;
+    animation-duration: 3s;
+}
+
+#body{
+    z-index: 5;
+}
+
+#head{
+    animation-delay: 0s;
+    animation: head 3s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+#left_hand{
+    animation-delay: 0s;
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: left_hand 3s ease-in-out infinite ;
+    opacity: 1;
+}
+#right_hand{
+    animation-delay: 0s;
+    transform-box: fill-box;
+    transform-origin: bottom;
+    animation: right_hand 3s ease-in-out infinite ;
+
+    opacity: 1;
+}
+
+@keyframes head{
+
+
+    from{
+        transform:  rotateZ(0deg);
+
+    }
+    50%{
+
+        transform: rotateZ(-3deg)
+
+    }
+    to{
+        transform: rotateZ(0deg);
+
+    }
+}
+
+@keyframes left_ear{
+    from{
+        transform:  translate(0%);
+        z-index: 6;
+    }
+    50%{
+
+        transform: translateY(1%) translateX(-1%);
+        z-index: 4;
+    }
+    to{
+        transform: translate(0%);
+        z-index: 6;
+    }
+}
+
+@keyframes right_ear{
+    from{
+        transform:  translate(0%);
+        z-index: 6;
+    }
+    50%{
+
+        transform: translateY(-1%) translateX(-1%);
+        z-index: 4;
+    }
+    to{
+        transform: translate(0%);
+        z-index: 6;
+    }
+}
+
+@keyframes left_hand{
+    from{
+        transform: rotateZ(0deg) translate(0%);
+        z-index: 6;
+    }
+    50%{
+
+        transform: translate(10%) rotateZ(-20deg);
+        z-index: 4;
+    }
+    to{
+        transform: translate(0%) rotateZ(0deg);
+        z-index: 6;
+    }
+}
+@keyframes right_hand{
+    from{
+        transform: rotateZ(0deg) translate(0%);
+        z-index: 6;
+    }
+    50%{
+        z-index: 4;
+        transform: translate(-10%) rotateZ(20deg);
+    }
+    to{
+        transform: translate(0%) rotateZ(0deg);
+        z-index: 6;
+    }
+}
+
+@keyframes eyes_closed{
+
+    from{
+        opacity: 0;
+    }
+    65%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes eyelids{
+    from{
+        opacity: 0;
+    }
+    63%{
+        opacity: 0;
+    }
+    67%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    72%{
+        opacity: 1;
+    }
+    77%{
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes eyes{
+    from{
+        opacity: 1;
+    }
+    65%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+

@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+svg{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+#body {
+    text-align: center;
+    z-index: 5;
+}
+
+#right_hand{
+
+    animation-delay: 0s;
+    transform-box: fill-box;
+    transform-origin: top;
+    animation: hand_right_ 4s ease-in-out infinite ;
+    animation-delay: 1s;
+
+    opacity: 1;
+}
+
+#left_hand{
+
+    animation-delay: 0s;
+    transform-box: fill-box;
+    transform-origin: top;
+    animation: hand_left_ 4s ease-in-out infinite ;
+    animation-delay: 1s;
+    opacity: 1;
+}
+@keyframes hand_right_{
+    from{
+
+        transform: rotateZ(0deg);
+    }
+    15%{
+        transform: rotateZ(4deg);;
+    }
+    30%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+@keyframes hand_left_{
+    from{
+
+        transform: rotateZ(0deg);
+    }
+    15%{
+        transform: rotateZ(-4deg);;
+    }
+    30%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+
+#inner_eye_left, #inner_eye_right{
+
+
+    animation-delay: 0s;
+    animation: inner_eyes 3s infinite, inner_eyes2 5s infinite 2s;
+    transform-box: fill-box;
+}
+@keyframes inner_eyes2{
+    from{
+
+        transform: translate(0px,0px);
+    }
+    50%{
+        transform: translate(6px,-1px);
+    }
+    100%{
+        transform: translate(0px,0px);
+    }
+}
+
+@keyframes inner_eyes{
+    from{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+#right_eye_closing, #left_eye_closing{
+    animation: eyelids infinite;
+    animation-duration: 3s;
+}
+
+#right_eye_closed, #left_eye_closed{
+    animation-delay: 0s;
+    animation: eyes_closed infinite;
+    animation-duration: 3s;
+}
+
+#right_eye, #left_eye{
+
+    animation-delay: 0s;
+    animation: eyes infinite ;
+    transform-box: fill-box;
+    transform-origin: center;
+
+    animation-duration: 3s;
+}
+
+
+#head{
+    animation-delay: 0s;
+    animation: head 3s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+
+}
+
+@keyframes head{
+
+
+    from{
+        transform:  rotateZ(0deg);
+        position: top 150px left 120px, 110px 90px;
+    }
+    50%{
+
+        transform: rotateZ(-3deg);
+        position: top 150px left 100px, 362px 90px; /* Die Fische werden um die HÃ¤fte der Breite der fische.png-Grafik verschoben */
+
+
+    }
+    to{
+        transform: rotateZ(0deg);
+        position: top 150px left 120px, 615px 90px; /* Die Fische werden um die volle Breite der fische.png-Grafik verschoben */
+
+    }
+}
+
+
+@keyframes eyes_closed{
+
+    from{
+        opacity: 0;
+    }
+    65%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 0;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes eyelids{
+    from{
+        opacity: 0;
+    }
+    60%{
+        opacity: 0;
+    }
+    67%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    72%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes eyes{
+    from{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
