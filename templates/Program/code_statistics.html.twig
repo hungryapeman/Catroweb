@@ -4,78 +4,88 @@
 
 {% block head %}
   <link rel="stylesheet" href="{{ asset('css/'~themeAssets()~'/card.css') }}"/>
+  <link rel="stylesheet" href="{{ asset('css/'~themeAssets()~'/panda_animation.css') }}"/>
 {% endblock %}
 
 {% block body %}
 
 {% if data|default(null) and brick_data|default(null) %}
-  <div class="accordion" id="accordionStatistics">
-    <div class="card">
-
-      <div class="card-header d-flex justify-content-between expansion-header" id="statisticsGeneral"
-           data-toggle="collapse"
-           aria-expanded="true"
-           aria-controls="collapseGeneral">
-        {{ "codeStatistics.general"|trans({}, "catroweb") }}
-        <i class="material-icons rotate-left" style="visibility: hidden">chevron_left</i>
+  <div class="code-statistics-wrapper" style="display: flex; flex-flow: column">
+    <div class="animation-top" style="display: flex; flex-flow: row">
+      <img id="panda" alt="Panda animation" style="flex-grow: 1" src={{ asset('/images/statistics/panda.svg') }}>
+      <div class="score-board" style="display: flex; flex-flow: column; flex-grow: 4">
+        <p style="font-size: 65pt">Your score:</p>
+        <p style="font-size: 190pt;margin-top: -90pt;margin-bottom: -35pt;">32</p>
       </div>
-
-      <div id="collapseGeneral" class="collapse show" aria-labelledby="statisticsGeneral"
-           data-parent="#accordionStatistics">
-        <div class="card-body">
-          <table class="table center table-striped">
-            <thead>
-            <tr>
-              <th></th>
-              <th>Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for key, entry in data %}
-              <tr>
-                <td>{{ entry['name'] }}</td>
-                <td id="total-number-of-{{ key }}">{{ entry['total-number'] }}</td>
-              </tr>
-            {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="card-header d-flex justify-content-between expansion-header" id="statisticsBricks"
-           data-toggle="collapse"
-           aria-expanded="true"
-           aria-controls="collapseBricks">
-        {{ "codeStatistics.bricks"|trans({}, "catroweb") }}
-        <i class="material-icons rotate-left" style="visibility: hidden">chevron_left</i>
-      </div>
-
-      <div id="collapseBricks" class="collapse show" aria-labelledby="statisticsBricks"
-           data-parent="#accordionStatistics">
-        <div class="card-body">
-          <table class="table center table-striped">
-            <thead>
-            <tr>
-              <th></th>
-              <th>Total</th>
-              <th>Different</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for key, entry in brick_data %}
-              <tr>
-                <td>{{ entry['name'] }}</td>
-                <td id="total-number-of-{{ key }}">{{ entry['total-number'] }}</td>
-                <td id="number-of-different-{{ key }}">{{ entry['different'] }}</td>
-              </tr>
-            {% endfor %}
-            </tbody>
-          </table>
+    </div>
+    <div class="accordion" id="accordionStatistics">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between expansion-header" id="statisticsGeneral"
+             data-toggle="collapse"
+             aria-expanded="true"
+             aria-controls="collapseGeneral">
+          {{ "codeStatistics.general"|trans({}, "catroweb") }}
+          <i class="material-icons rotate-left" style="visibility: hidden">chevron_left</i>
         </div>
 
+        <div id="collapseGeneral" class="collapse show" aria-labelledby="statisticsGeneral"
+             data-parent="#accordionStatistics">
+          <div class="card-body">
+            <table class="table center table-striped">
+              <thead>
+              <tr>
+                <th></th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for key, entry in data %}
+                <tr>
+                  <td>{{ entry['name'] }}</td>
+                  <td id="total-number-of-{{ key }}">{{ entry['total-number'] }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card-header d-flex justify-content-between expansion-header" id="statisticsBricks"
+             data-toggle="collapse"
+             aria-expanded="true"
+             aria-controls="collapseBricks">
+          {{ "codeStatistics.bricks"|trans({}, "catroweb") }}
+          <i class="material-icons rotate-left" style="visibility: hidden">chevron_left</i>
+        </div>
+
+        <div id="collapseBricks" class="collapse show" aria-labelledby="statisticsBricks"
+             data-parent="#accordionStatistics">
+          <div class="card-body">
+            <table class="table center table-striped">
+              <thead>
+              <tr>
+                <th></th>
+                <th>Total</th>
+                <th>Different</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for key, entry in brick_data %}
+                <tr>
+                  <td>{{ entry['name'] }}</td>
+                  <td id="total-number-of-{{ key }}">{{ entry['total-number'] }}</td>
+                  <td id="number-of-different-{{ key }}">{{ entry['different'] }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
+
 
 {% else %}
   <div class="card-header">

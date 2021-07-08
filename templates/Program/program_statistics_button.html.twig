@@ -1,66 +1,10 @@
-<div id="button-wrapper" class="">
   <button id="statistics{{ suffix|default('') }}"
-          class="btn btn-outline-primary btn-block c-stat-button">
-  {#        onclick="program.projectViewButtonsAction('{{ path('code_statistics', {'id': program.id }) }}', '#statistics-button-spinner{{ suffix|default('') }}',#}
-  {#'#statistics-icon{{ suffix|default('') }}')">#}
+          class="btn btn-outline-primary btn-block c-stat-button"
+    onclick="program.projectViewButtonsAction('{{ path('code_statistics', {'id': program.id }) }}', '#statistics-button-spinner{{ suffix|default('') }}',
+    '#statistics-icon{{ suffix|default('') }}{{ suffix|default('') }}')">
     <i class="material-icons d-none text-left" id="statistics-button-spinner{{ suffix|default('') }}">
       {% include 'Default/loadingSpinner.html.twig' with {'spinner_id': 'statistics-spinner' ~ suffix|default(), 'size': 'small'} %}
     </i>
     <i class="material-icons align-bottom" id="statistics-icon{{ suffix|default('') }}">assessment</i>
     <span>{{ "code statistics"|trans({}, "catroweb") }}</span>
   </button>
-</div>
-<div id="modal-c-stats"></div>
-
-<script>
-  isFullView = false
-  body = document.body
-  console.log(body)
-  button_c = document.getElementById("statistics{{ suffix|default('') }}")
-  console.log(button_c)
-  modal = document.getElementById("modal-c-stats")
-  console.log(modal)
-
-  popStateHandler = function () {
-    closeFullView()
-  }
-  _initListeners()
-
-
-    function _initListeners () {
-      this.button_c.addEventListener('click', function () {
-        if (this.isFullView) {
-          window.history.back() // to remove pushed state
-        } else {
-          history.pushState(
-                  { type: 'CodeStats', id: button_c.id, full: true },
-                  $(this).text(), '#' + button_c.id
-          )
-          openFullView()
-        }
-      })
-    }
-
-   function openFullView () {
-      $(window).on('popstate', this.popStateHandler)
-      // eslint-disable-next-line no-undef
-     console.log('Code statistics{{ suffix|default('') }}')
-      showCustomTopBarTitle('Code statistics{{ suffix|default('') }}', function () {
-        window.history.back()
-      })
-      this.isFullView = true
-      this.modal.classList.add('project-list', 'vertical')
-      this.body.classList.add('overflow-hidden')
-    }
-
-   function closeFullView () {
-      $(window).off('popstate', this.popStateHandler)
-      // eslint-disable-next-line no-undef
-      showDefaultTopBarTitle()
-      this.isFullView = false
-      this.modal.classList.remove('project-list', 'vertical')
-      this.body.classList.remove('overflow-hidden')
-      return false
-  }
-
-</script>
